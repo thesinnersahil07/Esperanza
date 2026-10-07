@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESPERANZA 2K26 | Shiksha Niketan School</title>
+  <meta name="description" content="ESPERANZA 2K26 — A celebration of creativity, knowledge, and youthful excellence. Theme: Artificial Intelligence, Robotics, Future Tech. Presented by Shiksha Niketan School.">
+  <meta property="og:title" content="ESPERANZA 2K26 | Shiksha Niketan School">
+  <meta property="og:description" content="ESPERANZA 2K26 — A celebration of creativity, knowledge, and youthful excellence. Theme: Artificial Intelligence, Robotics, Future Tech.">
+  <meta property="og:type" content="website">
+  <!-- Enforce manual scroll restoration early before browser parsing or layout shifts -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- GSAP + Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <!-- Lenis -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ============================================ -->
+  <!-- CONTEXTUAL INTELLIGENT CURSOR (desktop only) -->
+  <!-- ============================================ -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring">
+      <span class="cursor__text" id="cursorText"></span>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- CINEMATIC FILM GRAIN OVERLAY -->
+  <!-- ============================================ -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- ============================================ -->
+  <!-- GLOBAL MINIMAL SECTION TRACKER (desktop only) -->
+  <!-- ============================================ -->
+  <aside class="section-tracker" id="sectionTracker" aria-hidden="true">
+    <div class="section-tracker__track">
+      <div class="section-tracker__fill" id="sectionTrackerFill"></div>
+    </div>
+    <div class="section-tracker__badge">
+      <span class="section-tracker__prefix">SEC</span>
+      <span class="section-tracker__num" id="sectionTrackerNum">01</span>
+    </div>
+  </aside>
+
+  <!-- ============================================ -->
+  <!-- PRELOADER: FESTIVAL CONVERGENCE -->
+  <!-- ============================================ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__phoenix">
+        <img src="ezperanza logo.png" alt="Esperanza Phoenix Emblem" class="preloader__logo">
+      </div>
+      <div class="preloader__progress">
+        <div class="preloader__bar" id="preloaderBar"></div>
+      </div>
+      <div class="preloader__text">
+        <span class="preloader__status" id="preloaderStatus">CONVERGING FORCES</span>
+      </div>
+      <div class="preloader__edition-tag">
+        <span>SHIKSHA NIKETAN SCHOOL</span>
+        <span>·</span>
+        <span>ANNUAL TECH &amp; CULTURAL FESTIVAL</span>
+        <span>·</span>
+        <span>EDITION 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SOUND TOGGLE -->
+  <!-- ============================================ -->
+  <button class="sound-toggle" id="soundToggle" aria-label="Toggle ambient sound" data-magnetic data-cursor="SOUND">
+    <svg class="sound-toggle__icon sound-toggle__icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg class="sound-toggle__icon sound-toggle__icon--on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>
+    </svg>
+  </button>
+
+  <!-- ============================================ -->
+  <!-- NAVIGATION -->
+  <!-- ============================================ -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav__logo" data-magnetic data-cursor="HOME">
+      <img src="ezperanza logo.png" alt="Esperanza" class="nav__logo-img">
+    </a>
+    <div class="nav__links">
+      <a href="#about" class="nav__link" data-magnetic data-cursor="VIEW"><span>About</span></a>
+      <a href="#events" class="nav__link" data-magnetic data-cursor="VIEW"><span>15 Worlds</span></a>
+      <a href="#rules" class="nav__link" data-magnetic data-cursor="VIEW"><span>Protocol</span></a>
+      <a href="#register" class="nav__link nav__link--cta" data-magnetic data-cursor="ENTER"><span>Register</span></a>
+    </div>
+    <button class="nav__menu-btn" id="menuBtn" aria-label="Open menu" data-magnetic data-cursor="MENU">
+      <span class="nav__menu-line"></span>
+      <span class="nav__menu-line"></span>
+    </button>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- MOBILE MENU -->
+  <!-- ============================================ -->
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-overlay__bg"></div>
+    <div class="menu-overlay__content">
+      <div class="menu-overlay__links">
+        <a href="#hero" class="menu-overlay__link"><span class="menu-overlay__link-num">01</span><span class="menu-overlay__link-text">Home</span></a>
+        <a href="#about" class="menu-overlay__link"><span class="menu-overlay__link-num">02</span><span class="menu-overlay__link-text">About</span></a>
+        <a href="#events" class="menu-overlay__link"><span class="menu-overlay__link-num">03</span><span class="menu-overlay__link-text">15 Worlds</span></a>
+        <a href="#rules" class="menu-overlay__link"><span class="menu-overlay__link-num">04</span><span class="menu-overlay__link-text">Rules &amp; Protocol</span></a>
+        <a href="#register" class="menu-overlay__link"><span class="menu-overlay__link-num">05</span><span class="menu-overlay__link-text">Register</span></a>
+        <a href="#contact" class="menu-overlay__link"><span class="menu-overlay__link-num">06</span><span class="menu-overlay__link-text">Contact</span></a>
+      </div>
+      <div class="menu-overlay__footer">
+        <div class="menu-overlay__info">
+          <span>SHIKSHA NIKETAN SCHOOL</span>
+          <span>AI · ROBOTICS · FUTURE TECH</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- WEBGL CANVAS (Purposeful Celestial Atmosphere) -->
+  <!-- ============================================ -->
+  <canvas id="webglCanvas" class="webgl-canvas"></canvas>
+
+  <!-- ============================================ -->
+  <!-- SECTION: HERO (FILM TITLE CHOREOGRAPHY) -->
+  <!-- ============================================ -->
+  <section class="hero" id="hero">
+    <!-- Phase 01: Initial point of light / cosmic beacon -->
+    <div class="hero__beacon" id="heroBeacon"></div>
+
+    <div class="hero__video-wrap">
+      <video class="hero__video" id="heroVideo" muted loop playsinline preload="auto">
+        <source src="1006.mp4" type="video/mp4">
+      </video>
+      <div class="hero__video-overlay"></div>
+    </div>
+
+    <!-- Phase 02: Constructed Phoenix core emblem -->
+    <div class="hero__emblem" id="heroEmblem">
+      <div class="hero__emblem-halo"></div>
+      <img src="ezperanza logo.png" alt="Esperanza Phoenix Core" class="hero__emblem-img">
+    </div>
+
+    <div class="hero__content">
+      <div class="hero__pre-title">
+        <span class="hero__school">SHIKSHA NIKETAN SCHOOL</span>
+        <span class="hero__presents">PRESENTS</span>
+      </div>
+
+      <!-- Phase 03: Chromatic typography emergence -->
+      <div class="hero__title-stage">
+        <div class="hero__title-chroma hero__title-chroma--cyan" aria-hidden="true">ESPERANZA</div>
+        <div class="hero__title-chroma hero__title-chroma--pink" aria-hidden="true">ESPERANZA</div>
+        <h1 class="hero__title" id="heroTitle" aria-label="ESPERANZA">
+          <span class="hero__char-wrap"><span class="hero__char">E</span></span>
+          <span class="hero__char-wrap"><span class="hero__char">S</span></span>
+          <span class="hero__char-wrap"><span class="hero__char">P</span></span>
+          <span class="hero__char-wrap"><span class="hero__char">E</span></span>
+          <span class="hero__char-wrap"><span class="hero__char">R</span></span>
+          <span class="hero__char-wrap"><span class="hero__char">A</span></span>
+          <span class="hero__char-wrap"><span class="hero__char">N</span></span>
+          <span class="hero__char-wrap"><span class="hero__char">Z</span></span>
+          <span class="hero__char-wrap"><span class="hero__char">A</span></span>
+        </h1>
+      </div>
+
+      <!-- Phase 05: Independent 2K26 emergence -->
+      <div class="hero__year" id="heroYear">2K26</div>
+
+      <!-- Phase 06: Controlled kinetic type theme -->
+      <div class="hero__theme" id="heroTheme">
+        <span class="hero__theme-segment">ARTIFICIAL INTELLIGENCE</span>
+        <span class="hero__theme-bullet">✦</span>
+        <span class="hero__theme-segment">ROBOTICS</span>
+        <span class="hero__theme-bullet">✦</span>
+        <span class="hero__theme-segment">FUTURE TECH</span>
+      </div>
+
+      <!-- Phase 07: Magnetic call to action -->
+      <div class="hero__cta" id="heroCta">
+        <a href="#about" class="hero__enter-btn" data-magnetic data-cursor="EXPLORE">
+          <span class="hero__enter-text">EXPLORE THE UNIVERSE</span>
+          <span class="hero__enter-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__scroll-indicator" id="scrollIndicator">
+      <div class="hero__scroll-line"></div>
+      <span class="hero__scroll-text">DISCOVER</span>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION: ABOUT (MANIFESTO) -->
+  <!-- ============================================ -->
+  <section class="about" id="about">
+    <div class="about__grid">
+      <div class="about__label">
+        <span class="section-label"><span class="section-label__num">01</span><span class="section-label__sep">/</span><span class="section-label__text">ABOUT</span></span>
+      </div>
+
+      <div class="about__heading-wrap">
+        <h2 class="about__heading reveal-text">THE FUTURE<br>AWAKENS</h2>
+      </div>
+
+      <div class="about__description">
+        <div class="about__para reveal-block">
+          <p>ESPERANZA is a celebration of creativity, knowledge, and youthful excellence, bringing together students in an enriching platform of learning, expression, and healthy competition.</p>
+        </div>
+        <div class="about__para reveal-block">
+          <p>Rooted in the spirit of collaboration and discovery, the event encourages students to explore their talents, strengthen their confidence, develop essential skills, and learn beyond the boundaries of the classroom.</p>
+        </div>
+        <div class="about__para reveal-block">
+          <p>With a diverse range of engaging events, Esperanza aims to inspire curiosity, foster camaraderie, and empower young minds to discover their potential while celebrating the joy of learning together.</p>
+        </div>
+      </div>
+
+      <div class="about__stats">
+        <div class="about__stat reveal-block">
+          <span class="about__stat-number" data-count="15">0</span>
+          <span class="about__stat-label">TOTAL EVENTS</span>
+        </div>
+        <div class="about__stat reveal-block">
+          <span class="about__stat-number" data-count="3">0</span>
+          <span class="about__stat-label">CORE THEMES</span>
+        </div>
+        <div class="about__stat reveal-block">
+          <span class="about__stat-number">VI–XII</span>
+          <span class="about__stat-label">STUDENT RANGE</span>
+          <span class="about__stat-note">Multi-Tier By Event</span>
+        </div>
+      </div>
+
+      <div class="about__phoenix-glow"></div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION TRANSITION MARQUEE RIBBON -->
+  <!-- ============================================ -->
+  <div class="section-marquee" aria-hidden="true">
+    <div class="section-marquee__track">
+      <span>15 WORLDS</span><span class="sep">✦</span>
+      <span>ONE UNIVERSE</span><span class="sep">✦</span>
+      <span>SHIKSHA NIKETAN 2026</span><span class="sep">✦</span>
+      <span>EXPLORE THE EXHIBITION</span><span class="sep">✦</span>
+      <span>15 WORLDS</span><span class="sep">✦</span>
+      <span>ONE UNIVERSE</span><span class="sep">✦</span>
+      <span>SHIKSHA NIKETAN 2026</span><span class="sep">✦</span>
+      <span>EXPLORE THE EXHIBITION</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SECTION: EVENTS INTRO & DISCOVERY -->
+  <!-- ============================================ -->
+  <section class="events-intro" id="events">
+    <div class="events-intro__inner">
+      <span class="section-label"><span class="section-label__num">02</span><span class="section-label__sep">/</span><span class="section-label__text">EXHIBITION ARCHIVE</span></span>
+      <h2 class="events-intro__heading reveal-text">15 WORLDS.<br>ONE UNIVERSE.</h2>
+      <p class="events-intro__sub reveal-block">Step into fifteen distinct dimensions of creative and technical competition. Each event is an individual universe with official regulations, dedicated judging criteria, and unique eligibility brackets.</p>
+      
+      <!-- Interactive Category Discovery Filter -->
+      <div class="events-discovery reveal-block">
+        <div class="events-discovery__header">
+          <span class="events-discovery__eyebrow">DISCOVERY BY ELIGIBILITY</span>
+          <div class="events-filter-bar" role="tablist" aria-label="Filter events by class eligibility">
+            <button class="events-filter-btn is-active" data-filter="all" role="tab" aria-selected="true" data-magnetic data-cursor="ALL">
+              <span class="events-filter-btn__label">ALL WORLDS</span>
+              <span class="events-filter-btn__count">15</span>
+            </button>
+            <button class="events-filter-btn" data-filter="VI-VIII" role="tab" aria-selected="false" data-magnetic data-cursor="FILTER">
+              <span class="events-filter-btn__label">CLASS VI–VIII</span>
+              <span class="events-filter-btn__count">4</span>
+            </button>
+            <button class="events-filter-btn" data-filter="IX-X" role="tab" aria-selected="false" data-magnetic data-cursor="FILTER">
+              <span class="events-filter-btn__label">CLASS VIII–X</span>
+              <span class="events-filter-btn__count">3</span>
+            </button>
+            <button class="events-filter-btn" data-filter="IX-XII" role="tab" aria-selected="false" data-magnetic data-cursor="FILTER">
+              <span class="events-filter-btn__label">CLASS IX–XII</span>
+              <span class="events-filter-btn__count">6</span>
+            </button>
+            <button class="events-filter-btn" data-filter="XI-XII" role="tab" aria-selected="false" data-magnetic data-cursor="FILTER">
+              <span class="events-filter-btn__label">CLASS XI–XII</span>
+              <span class="events-filter-btn__count">2</span>
+            </button>
+          </div>
+          <p class="events-discovery__hint">Select any world to expand into its dedicated full-screen pavilion, official regulations, and faculty leads.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION: EVENT EXPLORER (HORIZONTAL EXHIBITION) -->
+  <!-- ============================================ -->
+  <section class="events-explorer" id="eventsExplorer">
+    <!-- Ambient Event Video (Controlled by Section Visibility Lifecycle) -->
+    <div class="events-explorer__bg-video-wrap" aria-hidden="true">
+      <video class="events-explorer__bg-video" id="eventsVideo" muted loop playsinline preload="metadata">
+        <source src="1006.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="events-explorer__track" id="eventsTrack">
+      <!-- 15 rich event worlds dynamically populated by app.js from authoritative EVENTS_DATA -->
+    </div>
+
+    <!-- Event exhibition controls & progress indicator -->
+    <div class="events-explorer__controls">
+      <button class="events-nav-btn events-nav-btn--prev" id="eventsNavPrev" aria-label="Previous event" data-magnetic>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="events-explorer__progress">
+        <div class="events-explorer__progress-bar" id="eventsProgressBar"></div>
+        <span class="events-explorer__progress-count"><span id="eventsCurrent">01</span> / <span id="eventsTotal">15</span></span>
+        <span class="events-explorer__active-name" id="eventsActiveName">DANZA CELESTIAL</span>
+      </div>
+      <button class="events-nav-btn events-nav-btn--next" id="eventsNavNext" aria-label="Next event" data-magnetic>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION: RULES & PROTOCOL (INTERACTIVE EDITORIAL) -->
+  <!-- ============================================ -->
+  <section class="rules" id="rules">
+    <!-- Dynamic Progress Spine -->
+    <div class="rules__progress-track" aria-hidden="true">
+      <div class="rules__progress-line" id="rulesProgressLine"></div>
+    </div>
+
+    <div class="rules__inner">
+      <span class="section-label"><span class="section-label__num">03</span><span class="section-label__sep">/</span><span class="section-label__text">PROTOCOL</span></span>
+      <h2 class="rules__heading" id="rulesHeading">
+        <span class="rules__heading-line rules__heading-line--1">RULES &amp;</span>
+        <span class="rules__heading-line rules__heading-line--2">PROTOCOL</span>
+      </h2>
+
+      <div class="rules__grid" id="rulesGrid">
+        <div class="rules__block" id="rulesBlockTiming" data-cursor="PROTOCOL">
+          <div class="rules__block-line" aria-hidden="true"></div>
+          <div class="rules__block-glow" aria-hidden="true"></div>
+          <h3 class="rules__block-title">
+            <span class="rules__block-icon">⏱</span>
+            <span class="rules__block-title-text">TIMING &amp; REGISTRATION</span>
+          </h3>
+          <ul class="rules__list">
+            <li>Registration at <strong class="accent-sweep">8:00 AM</strong>, closes at <strong class="accent-sweep">9:00 AM</strong></li>
+            <li>Registration fee: <strong class="accent-sweep">₹120/-</strong> per participant</li>
+            <li>Fee to be deposited on <strong class="accent-sweep">28th October 2026</strong> with participants' list</li>
+            <li>Senior wing core events: <strong class="accent-sweep">Std IX to XII</strong> (Junior &amp; middle categories: <strong>Std VI to VIII</strong> &amp; <strong>VIII to X</strong> per event guidelines)</li>
+            <li>One student can participate in <strong class="accent-sweep">one event only</strong></li>
+            <li>Maximum <strong class="accent-sweep">one team per school</strong> in team/group events</li>
+            <li>All participants must be accompanied by a <strong>teacher or moderator</strong></li>
+            <li>Last date of registration: <strong class="accent-sweep">28th October 2026</strong></li>
+          </ul>
+        </div>
+
+        <div class="rules__block" id="rulesBlockConduct" data-cursor="PROTOCOL">
+          <div class="rules__block-line" aria-hidden="true"></div>
+          <div class="rules__block-glow" aria-hidden="true"></div>
+          <h3 class="rules__block-title">
+            <span class="rules__block-icon">⚡</span>
+            <span class="rules__block-title-text">CODE OF CONDUCT</span>
+          </h3>
+          <ul class="rules__list">
+            <li><strong>Dress Code:</strong> <span class="accent-sweep">Black jeans and white shirt</span></li>
+            <li><strong>Anonymity:</strong> No participant names/specs to be revealed</li>
+            <li><strong>Team Codes:</strong> Allotted post-registration for all actions</li>
+            <li><strong>Device Policy:</strong> <span class="accent-sweep">No mobile/internet</span> during competition</li>
+            <li><strong>Discipline:</strong> Indiscipline may lead to disqualification</li>
+            <li><strong>Judging:</strong> Judges' decision is final and binding</li>
+          </ul>
+        </div>
+
+        <div class="rules__block" id="rulesBlockAmenities" data-cursor="PROTOCOL">
+          <div class="rules__block-line" aria-hidden="true"></div>
+          <div class="rules__block-glow" aria-hidden="true"></div>
+          <h3 class="rules__block-title">
+            <span class="rules__block-icon">🔗</span>
+            <span class="rules__block-title-text">AMENITIES &amp; INFO</span>
+          </h3>
+          <ul class="rules__list">
+            <li>Food and beverages available for purchase</li>
+            <li>Venue: <strong class="accent-sweep">Shiksha Niketan School</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION: REGISTER (CINEMATIC CALL-TO-ACTION) -->
+  <!-- ============================================ -->
+  <section class="register" id="register">
+    <div class="register__ambient-light" id="registerAmbientLight" aria-hidden="true"></div>
+    <div class="register__inner">
+      <span class="section-label"><span class="section-label__num">04</span><span class="section-label__sep">/</span><span class="section-label__text">REGISTER</span></span>
+      <div class="register__content">
+        <h2 class="register__heading" id="registerHeading">
+          <span class="register__heading-line register__heading-line--1">JOIN</span>
+          <span class="register__heading-line register__heading-line--2">THE</span>
+          <span class="register__heading-line register__heading-line--3">FUTURE</span>
+        </h2>
+        <div class="register__details" id="registerDetails">
+          <div class="register__detail register__detail--left register__detail--deadline">
+            <span class="register__detail-label">REGISTRATION DEADLINE</span>
+            <span class="register__detail-value register__detail-value--deadline">28th October 2026</span>
+            <div class="register__deadline-line" aria-hidden="true"></div>
+          </div>
+          <div class="register__detail register__detail--right">
+            <span class="register__detail-label">FEE</span>
+            <span class="register__detail-value">₹120/- per participant</span>
+          </div>
+          <div class="register__detail register__detail--left">
+            <span class="register__detail-label">VENUE</span>
+            <span class="register__detail-value">Shiksha Niketan School</span>
+          </div>
+          <div class="register__detail register__detail--right">
+            <span class="register__detail-label">ELIGIBILITY</span>
+            <span class="register__detail-value">Std VI – XII (Per-Event Spec)</span>
+          </div>
+        </div>
+        <div class="register__cta" id="registerCtaBlock">
+          <p class="register__note">"Your presence will make the event more meaningful...<br>Join us with your enthusiasm, we look forward to your active participation"</p>
+          <div class="register__action-wrap">
+            <a href="#contact" class="register__action-btn" data-magnetic data-cursor="ENTER" id="registerActionBtn">
+              <span class="register__action-fill"></span>
+              <span class="register__action-text">CONFIRM PARTICIPATION</span>
+              <span class="register__action-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+            <span class="register__action-hint">Coordinated through participating school delegations</span>
+          </div>
+        </div>
+      </div>
+      <div class="register__visual" id="registerVisual">
+        <div class="register__phoenix-halo" id="registerPhoenixHalo" aria-hidden="true"></div>
+        <img src="ezperanza logo.png" alt="Esperanza Phoenix" class="register__phoenix" id="registerPhoenix">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION: CONTACT / FOOTER (CLOSING CREDITS SCENE) -->
+  <!-- ============================================ -->
+  <footer class="footer" id="contact">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <span class="section-label"><span class="section-label__num">05</span><span class="section-label__sep">/</span><span class="section-label__text">CONNECT</span></span>
+        <h2 class="footer__heading" id="footerHeading">
+          <span class="footer__heading-line footer__heading-line--1">GET IN</span>
+          <span class="footer__heading-line footer__heading-line--2">TOUCH</span>
+        </h2>
+      </div>
+
+      <div class="footer__grid" id="footerGrid">
+        <div class="footer__col footer__col--contacts" id="footerColContacts">
+          <div class="footer__col-line" aria-hidden="true"></div>
+          <h4 class="footer__col-title">CONTACTS</h4>
+          <div class="footer__contact-item">
+            <span class="footer__contact-name">Mrs. Tanushree Sengupta</span>
+            <a href="tel:7209956674" class="footer__contact-link footer__contact-link--tel" data-cursor="CALL">7209956674</a>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-name">Devoshri Banerjee</span>
+            <a href="tel:8340594176" class="footer__contact-link footer__contact-link--tel" data-cursor="CALL">83405 94176</a>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-name">Mrs. Mousumi Banerjee</span>
+            <a href="tel:9113141814" class="footer__contact-link footer__contact-link--tel" data-cursor="CALL">9113141814</a>
+          </div>
+        </div>
+
+        <div class="footer__col footer__col--general" id="footerColGeneral">
+          <div class="footer__col-line" aria-hidden="true"></div>
+          <h4 class="footer__col-title">GENERAL</h4>
+          <div class="footer__contact-item">
+            <a href="tel:+9106572286362" class="footer__contact-link footer__contact-link--tel" data-cursor="CALL">+91 0657-2286362</a>
+          </div>
+          <div class="footer__contact-item">
+            <a href="mailto:shikshaniketantelco1968@gmail.com" class="footer__contact-link footer__contact-link--mail" data-cursor="EMAIL">shikshaniketantelco1968@gmail.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <a href="https://instagram.com/shikshaniketantelco" target="_blank" rel="noopener" class="footer__contact-link footer__contact-link--ig" data-cursor="OPEN">@shikshaniketantelco</a>
+          </div>
+        </div>
+
+        <div class="footer__col footer__col--event" id="footerColEvent">
+          <div class="footer__col-line" aria-hidden="true"></div>
+          <h4 class="footer__col-title">EVENT</h4>
+          <span class="footer__event-meta footer__event-meta--bold">ESPERANZA 2K26</span>
+          <span class="footer__event-meta">Shiksha Niketan School</span>
+          <span class="footer__event-meta">Theme: AI · Robotics · Future Tech</span>
+          <span class="footer__event-meta">Registration Deadline: 28 Oct 2026</span>
+        </div>
+      </div>
+
+      <div class="footer__bottom" id="footerBottom">
+        <div class="footer__brand" id="footerBrand">
+          <div class="footer__logo-wrap">
+            <img src="ezperanza logo.png" alt="Esperanza" class="footer__logo" id="footerLogo">
+            <div class="footer__logo-sweep" aria-hidden="true"></div>
+          </div>
+          <span class="footer__brand-text">ESPERANZA 2K26</span>
+        </div>
+        <span class="footer__credit" id="footerCredit">SHIKSHA NIKETAN SCHOOL</span>
+      </div>
+
+      <div class="footer__finish-line" id="footerFinishLine" aria-hidden="true"></div>
+    </div>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- CINEMATIC EVENT DETAIL MODAL (FULL-SCREEN) -->
+  <!-- ============================================ -->
+  <div class="event-modal" id="eventModal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1" data-lenis-prevent>
+    <div class="event-modal__backdrop" id="eventModalBackdrop"></div>
+    <div class="event-modal__window" id="eventModalWindow" data-lenis-prevent>
+      <!-- Injected dynamically with complete brochure data & cinematic transitions -->
+    </div>
+  </div>
+
+  <script src="events-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
