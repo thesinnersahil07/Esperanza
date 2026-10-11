@@ -455,6 +455,7 @@
     const chromaPink = document.querySelector('.hero__title-chroma--pink');
     const year = document.getElementById('heroYear');
     const themeSegments = document.querySelectorAll('.hero__theme-segment, .hero__theme-bullet');
+    const heroDate = document.getElementById('heroDate');
     const cta = document.getElementById('heroCta');
     const scrollIndicator = document.getElementById('scrollIndicator');
     const nav = document.getElementById('nav');
@@ -537,6 +538,7 @@
       }, '-=0.5')
 
     // PHASE 07: CTA & Interface controls
+      .to(heroDate, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.4')
       .to(cta, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
       .to(scrollIndicator, { opacity: 0.8, duration: 0.6 }, '-=0.4')
       .to(nav, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
@@ -644,6 +646,13 @@
   let currentActiveEventSlug = null;
   let currentFilter = 'all';
 
+  function isEventEligible(event, filter) {
+    if (!filter || filter === 'all') return true;
+    const targetClass = parseInt(filter, 10);
+    if (isNaN(targetClass)) return true;
+    return Array.isArray(event.eligibleClasses) && event.eligibleClasses.includes(targetClass);
+  }
+
   function initEventsExplorer() {
     const track = document.getElementById('eventsTrack');
     const section = document.querySelector('.events-explorer');
@@ -664,6 +673,20 @@
     if (totalCount) {
       totalCount.textContent = String(eventsList.length).padStart(2, '0');
     }
+
+    // Initialize dynamic filter button counts directly from authoritative EVENTS_DATA
+    filterBtns.forEach((btn) => {
+      const filter = btn.dataset.filter;
+      const countEl = btn.querySelector('.events-filter-btn__count');
+      if (countEl) {
+        if (filter === 'all') {
+          countEl.textContent = String(eventsList.length);
+        } else {
+          const count = eventsList.filter((ev) => isEventEligible(ev, filter)).length;
+          countEl.textContent = String(count);
+        }
+      }
+    });
 
     // 1. Render all 15 Event Worlds into Track
     renderAllCards(eventsList, track);
@@ -943,14 +966,9 @@
 
         let firstMatchCard = null;
 
-        cards.forEach((card) => {
-          const category = card.dataset.category;
-          const isMatch = (filter === 'all') ||
-            (category === filter) ||
-            (filter === 'VI-VIII' && (category === 'VI-VIII' || category === 'VI-X')) ||
-            (filter === 'IX-X' && (category === 'IX-X' || category === 'VI-X')) ||
-            (filter === 'IX-XII' && category === 'IX-XII') ||
-            (filter === 'XI-XII' && category === 'XI-XII');
+        cards.forEach((card, idx) => {
+          const eventData = eventsList[idx];
+          const isMatch = isEventEligible(eventData, filter);
 
           if (isMatch) {
             card.classList.remove('is-dimmed');
@@ -1015,7 +1033,7 @@
   // --- Helper: Render All 15 Event Cards into Track ---
   function renderAllCards(eventsList, track) {
     track.innerHTML = eventsList.map((event) => `
-      <article class="event-card" id="eventCard-${event.slug}" data-event-index="${event.id}" data-category="${event.category}" data-cursor="ENTER" style="--event-hue: ${event.accentHue}; --event-accent: ${event.accentColor};" tabindex="0" role="region" aria-label="Event ${event.id}: ${event.name}">
+      <article class="event-card" id="eventCard-${event.slug}" data-event-index="${event.id}" data-category="${event.category}" data-eligible-classes="${(event.eligibleClasses || []).join(',')}" data-cursor="ENTER" style="--event-hue: ${event.accentHue}; --event-accent: ${event.accentColor};" tabindex="0" role="region" aria-label="Event ${event.id}: ${event.name}">
         <div class="event-card__ambient"></div>
         <div class="event-card__specular"></div>
         
@@ -1059,8 +1077,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
             <div class="event-card__quick-contact">
-              <span>Lead:</span>
-              <strong>${event.teacher}</strong>
+              <span>Lead: <strong>${event.teacher}</strong></span>
+              ${event.contact && event.contact !== 'Not provided in brochure' ? `<a href="tel:${event.contact.replace(/[^0-9]/g, '')}" class="event-card__quick-contact-tel" data-cursor="CALL" onclick="event.stopPropagation();" aria-label="Call faculty ${event.teacher}"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>${event.contact}</a>` : ''}
             </div>
           </div>
         </div>
@@ -1090,6 +1108,31 @@
 
   // --- Helper: Navigate Horizontal Cards ---
   function navigateHorizontal(direction, track, eventsList, horizontalScroll, scrollDistance) {
+    if (currentFilter !== 'all') {
+      const cards = Array.from(track.querySelectorAll('.event-card'));
+      const matchingIndices = [];
+      eventsList.forEach((ev, idx) => {
+        if (isEventEligible(ev, currentFilter)) matchingIndices.push(idx);
+      });
+      if (matchingIndices.length > 0) {
+        const trackLeft = track.getBoundingClientRect().left;
+        let bestMatchIdx = matchingIndices[0];
+        let minDiff = Infinity;
+        matchingIndices.forEach((cardIdx) => {
+          const cRect = cards[cardIdx].getBoundingClientRect();
+          const diff = Math.abs(cRect.left - trackLeft);
+          if (diff < minDiff) {
+            minDiff = diff;
+            bestMatchIdx = cardIdx;
+          }
+        });
+        const currentPosInMatches = matchingIndices.indexOf(bestMatchIdx);
+        const targetPosInMatches = Math.max(0, Math.min(matchingIndices.length - 1, currentPosInMatches + direction));
+        const targetCard = cards[matchingIndices[targetPosInMatches]];
+        scrollToCard(targetCard, track, horizontalScroll, scrollDistance);
+        return;
+      }
+    }
     const st = (horizontalScroll && horizontalScroll.scrollTrigger) || (window.ScrollTrigger && ScrollTrigger.getById('horizontalEventsScroll'));
     if (window.innerWidth >= 768 && st) {
       const totalDist = scrollDistance || Math.max(0, (track ? track.scrollWidth : 0) - window.innerWidth);
