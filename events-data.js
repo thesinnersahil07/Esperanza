@@ -1,6 +1,6 @@
 /* ============================================================
    ESPERANZA 2K26 — AUTHORITATIVE EVENT DATA MODEL
-   Source: Official Esperanza 2K26 Brochure (Shiksha Niketan School)
+   Source: Official Esperanza 2K26 Brochure (Shiksha Niketan)
    100% Sourced — No Inventions, No Missing Rules Omitted
    ============================================================ */
 
@@ -20,12 +20,12 @@ const EVENTS_DATA = [
     accentColor: "#ec4899",
     secondaryColor: "#8b5cf6",
     accentHue: 325,
-    teacher: "KUMARI RAGINI",
+    teacher: "Ms. Kumari Ragini",
     contact: "9798857681",
     specialSpecs: [
       { label: "Music Submission", value: "Labelled pen drive before event (free from explicit content, no last-minute changes)" },
       { label: "Costumes & Props", value: "Must be decent, related to theme, and safe to use" },
-      { label: "Dispute Clause", value: "Judges' decision shall be final and binding; no changes or appeals entertained" }
+      { label: "Dispute Clause", value: "Judges' decision will be final and binding; no changes or appeals entertained" }
     ],
     rules: [
       "Students of Classes VI to VIII can participate.",
@@ -33,7 +33,7 @@ const EVENTS_DATA = [
       "Time - 5 minutes.",
       "Teams must submit their music tracks before the event in a labelled pen drive and ensure that they are free from explicit content. No last-minute changes will be allowed.",
       "Costumes must be decent and related to the theme and props to be used should be safe.",
-      "The judges' decision shall be final and binding, and no changes or appeals will be entertained."
+      "Judges' decision will be final and binding, and no changes or appeals will be entertained."
     ],
     criteria: [
       "Adherence to the Theme",
@@ -73,8 +73,8 @@ const EVENTS_DATA = [
     id: "02",
     slug: "alma-lunar",
     name: "ALMA LUNAR",
-    format: "Song",
-    theme: "Medley of remix of old songs",
+    format: "Group Song",
+    theme: "Back to the Beats - 80s and 90s remix",
     eligibility: "Classes IX–XII",
     category: "IX-XII",
     eligibleClasses: [9, 10, 11, 12],
@@ -84,28 +84,30 @@ const EVENTS_DATA = [
     accentColor: "#38bdf8",
     secondaryColor: "#6366f1",
     accentHue: 205,
-    teacher: "PALLAVI",
+    teacher: "Ms. Pallavi",
     contact: "9334880970",
     specialSpecs: [
-      { label: "Language", value: "Only Hindi songs" },
+      { label: "Language", value: "Only Hindi songs are allowed" },
       { label: "Instrumentation", value: "One instrument per group is allowed" },
-      { label: "Audio Track", value: "Own track / Karaoke on labelled pen drive before event; no last minute changes" }
+      { label: "Audio Track", value: "Tracks/Karaoke must be submitted before the event in a labelled pen drive; no last-minute changes" },
+      { label: "Decision Clause", value: "Judges' decision will be final and binding" }
     ],
     rules: [
-      "Students of classes 9 to 12 can participate.",
-      "NO. OF PARTICIPANTS: 6 per group.",
-      "TIME: 4 minutes.",
+      "Students of classes IX to XII can participate.",
+      "NO. OF PARTICIPANTS :- 6 per group.",
+      "TIME :- 4 minutes.",
       "Teams can use their own track / Karaoke which must be submitted before the event in a labelled pen drive.",
       "Last minute changes are not allowed.",
       "One instrument per group is allowed.",
-      "Only Hindi songs."
+      "Only Hindi songs are allowed.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
-      "Adherence to the theme (song selection)",
-      "Stage presentation",
+      "Adherence to the theme (Song selection)",
+      "Stage Presentation",
       "Rhythmic Interpretation",
-      "Voice quality",
-      "Overall presentation"
+      "Voice Quality",
+      "Overall Presentation"
     ],
     visualMotif: `
       <div class="event-motif event-motif--lunar">
@@ -154,7 +156,7 @@ const EVENTS_DATA = [
     accentColor: "#f43f5e",
     secondaryColor: "#06b6d4",
     accentHue: 345,
-    teacher: "SHALINI SHARMA",
+    teacher: "Ms. Shalini Sharma",
     contact: "7004648626",
     specialSpecs: [
       { label: "Stage Time", value: "Maximum 1 minute to arrange stage + 3 minutes to perform" },
@@ -162,14 +164,14 @@ const EVENTS_DATA = [
       { label: "Audio & Props", value: "Safe props allowed; music track on labelled pen drive prior to event" }
     ],
     rules: [
-      "Students of classes 6 to 10 can participate.",
-      "Team Size - 5 members per team.",
+      "Students of classes VI to X can participate.",
+      "Team Size :- 5 members per team.",
       "The team will be allowed a maximum of one minute to arrange the stage and 3 minutes to perform.",
       "Use of safe and appropriate props is allowed.",
       "Music and costumes should be theme appropriate.",
       "Teams must submit their music tracks before the event in a labelled pen drive and ensure that they are free from explicit content.",
       "Vulgar, offensive or inappropriate language / content is not permitted.",
-      "The judges decision will be final and binding."
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "Theme adherence",
@@ -208,7 +210,7 @@ const EVENTS_DATA = [
     name: "AURA DORADO",
     brochureTitle: "AURA DORODO",
     format: "Ramp Walk",
-    theme: "Theme not specified in brochure",
+    theme: null,
     eligibility: "Classes IX–XII",
     category: "IX-XII",
     eligibleClasses: [9, 10, 11, 12],
@@ -218,7 +220,7 @@ const EVENTS_DATA = [
     accentColor: "#fbbf24",
     secondaryColor: "#d97706",
     accentHue: 42,
-    teacher: "SANDHYA KUMARI",
+    teacher: "Ms. Sandhya Kumari",
     contact: "9162777500",
     specialSpecs: [
       { label: "Ramp Route", value: "Participants must follow designated ramp route; stepping outside marked area prohibited" },
@@ -232,7 +234,8 @@ const EVENTS_DATA = [
       "Participants must submit their music tracks in advance in a labelled pen drive on the day of the event and ensure that they are free from explicit content. No last minute changes will be allowed.",
       "Costumes must be decent and related to the theme and props to be used should be safe.",
       "Each participant must complete the walk within the given time limit.",
-      "Participants must follow the designated ramp route and should not step outside the marked area."
+      "Participants must follow the designated ramp route and should not step outside the marked area.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "Concept & creativity",
@@ -270,7 +273,7 @@ const EVENTS_DATA = [
     id: "05",
     slug: "la-mirada",
     name: "LA MIRADA",
-    format: "Film making",
+    format: "Film Making",
     theme: "BEYOND THE CODE: HUMANS IN AN AI WORLD",
     eligibility: "Classes XI–XII",
     category: "XI-XII",
@@ -281,7 +284,7 @@ const EVENTS_DATA = [
     accentColor: "#e11d48",
     secondaryColor: "#fda4af",
     accentHue: 350,
-    teacher: "ANKITA",
+    teacher: "Ms. Ankita",
     contact: "7250819777",
     specialSpecs: [
       { label: "Theme Connection", value: "Clear connection with AI and/or Robotics mandatory" },
@@ -290,13 +293,14 @@ const EVENTS_DATA = [
       { label: "Content Standard", value: "Decent, school-appropriate, and free from explicit or offensive material" }
     ],
     rules: [
-      "Students of classes 11 and 12 can participate.",
+      "Students of classes XI and XII can participate.",
       "Team Size: 2 members per team.",
       "Time: 5 minutes.",
       "The film must be based on the given theme and should have a clear connection with AI and/or Robotics.",
       "Use of appropriate costumes, props, locations, music, visual effects and editing techniques is allowed.",
       "The content must be decent, school-appropriate and free from explicit or offensive material.",
-      "Participants are free to interpret the theme creatively through fiction, drama, comedy, science fiction, documentary, thriller, or any other suitable genre."
+      "Participants are free to interpret the theme creatively through fiction, drama, comedy, science fiction, documentary, thriller, or any other suitable genre.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "Story & Screenplay",
@@ -352,7 +356,7 @@ const EVENTS_DATA = [
     accentColor: "#10b981",
     secondaryColor: "#059669",
     accentHue: 160,
-    teacher: "NEHA",
+    teacher: "Ms. Neha",
     contact: "8825277547",
     specialSpecs: [
       { label: "Strict Ban", value: "No placards, charts, visual aids, or electronic devices allowed" },
@@ -360,14 +364,15 @@ const EVENTS_DATA = [
       { label: "Delivery", value: "Delivered without reading from any kind of written script" }
     ],
     rules: [
-      "Students of classes 9 & 10 can participate.",
+      "Students of classes IX & X can participate.",
       "NO. OF PARTICIPANTS: 1 student per school.",
       "TIME: 1 minute.",
       "Teams can not use placards, charts, any visual aids or electronic devices.",
       "Plagiarised or copied speeches may lead to disqualification.",
       "Speech should be original, relevant to the theme age appropriate and thought provoking.",
       "Participants are requested to deliver their speech without reading from any kind of written script.",
-      "Participants will be judged on the basis of their clarity of speech confidence, pronunciation, fluency, expression, voice modulation, body language and overall impact."
+      "Participants will be judged on the basis of their clarity of speech, confidence, pronunciation, fluency, expression, voice modulation, body language and overall impact.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "Adherence to the theme",
@@ -401,7 +406,7 @@ const EVENTS_DATA = [
     slug: "universo-oculto",
     name: "UNIVERSO OCULTO",
     format: "Science Working Model",
-    theme: "Mystical and Hidden dimensions of Universe",
+    theme: "Mystical and Hidden Dimensions of Universe",
     eligibility: "Classes VI–VIII",
     category: "VI-VIII",
     eligibleClasses: [6, 7, 8],
@@ -411,7 +416,7 @@ const EVENTS_DATA = [
     accentColor: "#8b5cf6",
     secondaryColor: "#c084fc",
     accentHue: 270,
-    teacher: "SUSHANT KUMAR",
+    teacher: "Mr. Sushant Kumar",
     contact: "9122580272",
     specialSpecs: [
       { label: "Dimensions", value: "Exact 1m × 1m × 1m (Strict specification)" },
@@ -420,14 +425,15 @@ const EVENTS_DATA = [
       { label: "Materials", value: "Teams must bring their own materials; model must be working based on theme" }
     ],
     rules: [
-      "Students of classes 6 to 8 can participate.",
+      "Students of classes VI to VIII can participate.",
       "Team Size - 3 members.",
       "Model Making: 1 hour + Explanation & Q&A : 10 MINS.",
       "The Model must be assembled during the competition within the stipulated time.",
       "Teams must bring their own materials.",
       "Model must be working based on the them.",
       "Dimensions: 1m×1m×1m.",
-      "Electricity will not be provided."
+      "Electricity will not be provided.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "Adherence to the theme",
@@ -464,7 +470,7 @@ const EVENTS_DATA = [
     slug: "combate-mecanico",
     name: "COMBATE MECÁNICO",
     format: "Robo War",
-    theme: "Mechanical Combat Arena",
+    theme: null,
     eligibility: "Classes IX–XII",
     category: "IX-XII",
     eligibleClasses: [9, 10, 11, 12],
@@ -474,8 +480,8 @@ const EVENTS_DATA = [
     accentColor: "#f97316",
     secondaryColor: "#ea580c",
     accentHue: 25,
-    teacher: "ASHWANI KUMAR",
-    contact: "7489 098 028",
+    teacher: "Mr. Ashwani Kumar",
+    contact: "7489098028",
     specialSpecs: [
       { label: "Dimensions Limit", value: "Max 40 cm × 40 cm × 40 cm (STRICT: ZERO TOLERANCE)" },
       { label: "Weight Limit", value: "Max 5 kg (ZERO TOLERANCE; controller excluded from weight)" },
@@ -485,7 +491,7 @@ const EVENTS_DATA = [
       { label: "Tournament Rounds", value: "3 Rounds: Prelims, Semi-Final, and Final (3 minutes per match)" }
     ],
     rules: [
-      "Students of classes 9 to 12 can participate.",
+      "Students of classes IX to XII can participate.",
       "Team size: maximum 3 members per team. Individual participation is also allowed.",
       "The competition will be held in 3 rounds: Prelims, Semi-Final and Final.",
       "Robot dimensions should not exceed 40 cm × 40 cm × 40 cm. There is no tolerance on dimensions.",
@@ -496,7 +502,7 @@ const EVENTS_DATA = [
       "Robot will be checked for dimensions and weight before the competition. Robots not meeting the limits will be disqualified.",
       "If a robot develops an error during the competition, the team can opt for a repair time of 2 minutes.",
       "Points will be awarded on the basis of aggression, as described in the judgement criteria.",
-      "The decision of the judges will be final and binding on all teams.",
+      "Judges' decision will be final and binding on all teams.",
       "Each match will be of 3 minutes."
     ],
     criteria: [
@@ -538,39 +544,41 @@ const EVENTS_DATA = [
     slug: "voz-del-futuro",
     name: "VOZ DEL FUTURO",
     format: "Debate",
-    theme: "AI & ROBOTICS",
+    theme: "ACCELERATING PROFITS AND STEERING ETHICS",
     eligibility: "Classes IX–XII",
     category: "IX-XII",
     eligibleClasses: [9, 10, 11, 12],
-    participants: "2 speakers per team",
+    participants: "2 members per team",
     teamSize: "2",
-    duration: "3–5 Minutes per speech",
+    duration: "Speaker 1: 2 min | Speaker 2: 2 min | Rebuttal: 1 min",
     accentColor: "#06b6d4",
     secondaryColor: "#3b82f6",
     accentHue: 195,
-    teacher: "SOMA GIRI",
+    teacher: "Ms. Soma Giri",
     contact: "7004277740",
     specialSpecs: [
-      { label: "Team Limit", value: "One team per school (2 speakers for Std IX–XII)" },
-      { label: "Speech Structure", value: "Constructive speeches open with Affirmative; Rebuttals counter opposing points" },
-      { label: "Timing Discipline", value: "Fixed 3–5 min limits; bell warnings signal limits; overtime incurs point deduction" },
-      { label: "Rules of Engagement", value: "No interruptions except POI; no brand-new evidence in rebuttals; slurs/attacks strictly banned" }
+      { label: "Language", value: "English" },
+      { label: "Speech Timings", value: "Speaker 1 (for the motion): 2 mins; Speaker 2 (against the motion): 2 mins; Rebuttal round: 1 min" },
+      { label: "Rebuttal Protocol", value: "Rebuttals must address existing points, not introduce new arguments" },
+      { label: "Conduct Standards", value: "Respectful Language: Target ideas, not individuals. Personal attacks and offensive language are prohibited" },
+      { label: "Decision Clause", value: "Judges' decision will be final and binding" }
     ],
     rules: [
-      "Team Size: 2 speakers per team for Std IX-XII.",
-      "One team per school.",
-      "Constructive Speeches: Open with the affirmative, alternating between teams.",
-      "Rebuttals: Teams counter opposing arguments; affirmative usually speaks last.",
-      "Timing: Fixed limits (typically 3-5 minutes); bell warnings signal time limits, and overtime incurs point deduction.",
-      "No Interruptions: Prohibited except via structured Points of Information (POI).",
-      "No New Evidence: Rebuttals must address existing points, not introduce brand-new major arguments.",
-      "Respectful Language: Target ideas, not individuals; personal attacks and vulgarity are banned.",
-      "No Biases: Discriminatory, racial, or religious slurs are strictly prohibited."
+      "Students of classes IX-XII can participate.",
+      "Team Size :- 2 members per team.",
+      "Language: English.",
+      "Timing: Speaker 1 (for the motion): 2 minutes.",
+      "Timing: Speaker 2 (against the motion): 2 minutes.",
+      "Timing: 1-minute rebuttal round (rebuttals must address existing points, not introduce new arguments).",
+      "Respectful Language: Target ideas, not individuals. Personal attacks and use of offensive language are prohibited.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
-      "Matter: Substance, logic, and evidence",
-      "Manner: Delivery, tone, eye contact, and vocal clarity",
-      "Method: Structure, teamwork, and adherence to time"
+      "Strength and Relevance of Arguments",
+      "Critical Thinking and Reasoning",
+      "Understanding of Business Ethics",
+      "Rebuttal and Counter Argument",
+      "Communication and Language"
     ],
     visualMotif: `
       <div class="event-motif event-motif--debate">
@@ -598,7 +606,7 @@ const EVENTS_DATA = [
   {
     id: "10",
     slug: "cibernetica-legion",
-    name: "CIBERNETICA LEGION",
+    name: "CIBERNATICA LEGION",
     brochureTitle: "CIBERNATICA LEGION",
     format: "Capture the Flag",
     theme: "AI Security, Logic & Problem-Solving Challenge",
@@ -611,14 +619,14 @@ const EVENTS_DATA = [
     accentColor: "#22c55e",
     secondaryColor: "#15803d",
     accentHue: 140,
-    teacher: "RAJAN SHARMA",
+    teacher: "Mr. Rajan Sharma",
     contact: "82103 20311",
     specialSpecs: [
       { label: "Objective", value: "3 System Flags + Logic Demo" },
       { label: "Challenge Format", value: "Live CTF + Judges Viva / Q&A session" },
       { label: "Equipment", value: "Bring your own laptop (Wi-Fi capable). No USBs or external media permitted" },
       { label: "STRICT PROHIBITION", value: "Local LLMs (Ollama, LM Studio), Terminal AI Agents, or MCP Servers" },
-      { label: "Disqualification", value: "Automated AI tooling or network/property damage leads to immediate disqualification" }
+      { label: "Disqualification", value: "Automated AI tooling or network/property damage leads to immediate disqualification; Judges' decision will be final and binding" }
     ],
     rules: [
       "Objective: 3 System Flags + Logic Demo.",
@@ -631,12 +639,13 @@ const EVENTS_DATA = [
       "No USB drives, external storage devices, or secondary media allowed.",
       "Strictly Prohibited: Local LLMs (Ollama, LM Studio), Terminal AI Agents, or MCP Servers.",
       "Use of automated AI tooling will lead to immediate disqualification.",
-      "Damage to school property/network → Immediate disqualification + Consequences."
+      "Damage to school property/network → Immediate disqualification + Consequences.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "CTF Scoreboard points",
       "Judges Viva / Technical Defense",
-      "Judge's decision will be final & binding"
+      "Judges' decision will be final and binding"
     ],
     visualMotif: `
       <div class="event-motif event-motif--terminal">
@@ -675,7 +684,7 @@ const EVENTS_DATA = [
     accentColor: "#eab308",
     secondaryColor: "#ca8a04",
     accentHue: 48,
-    teacher: "RACHANA SHARMA",
+    teacher: "Ms. Rachana Sharma",
     contact: "9204689389",
     specialSpecs: [
       { label: "Clue Briefing", value: "Clues related to hunt provided 5 minutes before hunt commencement" },
@@ -690,7 +699,8 @@ const EVENTS_DATA = [
       "Clues related to hunt shall be provided 5 minutes before the beginning of the hunt.",
       "Participants have to decipher/solve the riddles/clues and find the items within the time allotted.",
       "Students must stay disciplined during the hunt as any act of indiscipline will lead to disqualification.",
-      "Participants must not take help from anyone or use mobile phone during solving the riddles or finding the items."
+      "Participants must not take help from anyone or use mobile phone during solving the riddles or finding the items.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "Number of items collected",
@@ -734,7 +744,7 @@ const EVENTS_DATA = [
     accentColor: "#d946ef",
     secondaryColor: "#a21caf",
     accentHue: 295,
-    teacher: "PUNAM CHOUDHARY",
+    teacher: "Ms. Punam Choudhary",
     contact: "9279934260",
     specialSpecs: [
       { label: "Coverage", value: "General knowledge, current affairs, Logical Reasoning, Technology and Aptitude" },
@@ -749,7 +759,8 @@ const EVENTS_DATA = [
       "Unfair means will lead to disqualification.",
       "Time limit and other details of each round will be stated before its commencement.",
       "ROUND 1: PRELIMINARY ROUND — Written quiz for all participating team. In case of tie - star marked questions shall be considered as tie breaker. Top scoring 4 teams qualify for the Finals.",
-      "ROUND 2: FINALS (on stage event) — Round 1: General Round, Round 2: Bounce/ Pounce, Round 3: Mystry solver. Four teams qualifying prelims are eligible for Final."
+      "ROUND 2: FINALS (on stage event) — Round 1: General Round, Round 2: Bounce/ Pounce, Round 3: Mystry solver. Four teams qualifying prelims are eligible for Final.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "Preliminary written quiz ranking (Star-marked tie-breaker)",
@@ -789,19 +800,22 @@ const EVENTS_DATA = [
     accentColor: "#f43f5e",
     secondaryColor: "#a855f7",
     accentHue: 335,
-    teacher: "RANJANA SHARMA",
+    teacher: "Ms. Ranjana Sharma",
     contact: "9113156313",
     specialSpecs: [
-      { label: "Canvas Provided", value: "A4 size board (base) will be provided by the school" },
-      { label: "Technique", value: "Strictly without traditional brushes; alternative creative tools and textures" },
-      { label: "Originality", value: "Artwork must be original, authentic, and not copied" }
+      { label: "Paper Provided", value: "A3 size paper will be provided" },
+      { label: "Materials Required", value: "Participants must bring their own materials" },
+      { label: "Originality Clause", value: "Artwork must be original and not copied" },
+      { label: "Decision Clause", value: "Judges' decision will be final and binding" }
     ],
     rules: [
       "Students of classes IX and X can participate.",
-      "NO. OF PARTICIPANTS: 2.",
-      "TIME: One and a half hours.",
-      "A4 size board (base) will be provided.",
-      "The art work must be original and not copied."
+      "NO. OF PARTICIPANTS :- 2.",
+      "TIME :- One and a half hours.",
+      "A3 size paper will be provided.",
+      "Participants must bring their own materials.",
+      "The artwork must be original and not copied.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "Creativity and originality",
@@ -825,10 +839,10 @@ const EVENTS_DATA = [
           <circle cx="140" cy="160" r="10" fill="#f43f5e" fill-opacity="0.6"/>
           <circle cx="280" cy="180" r="14" fill="#a855f7" fill-opacity="0.6"/>
           <circle cx="220" cy="270" r="8" fill="#ec4899" fill-opacity="0.8"/>
-          <!-- A4 canvas outline -->
+          <!-- A3 canvas outline -->
           <rect x="140" y="100" width="120" height="170" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
         </svg>
-        <div class="event-motif__label">FLUID PIGMENT SWIRL &amp; A4 CANVAS</div>
+        <div class="event-motif__label">FLUID PIGMENT SWIRL &amp; A3 PAPER</div>
       </div>
     `
   },
@@ -847,7 +861,7 @@ const EVENTS_DATA = [
     accentColor: "#3b82f6",
     secondaryColor: "#4f46e5",
     accentHue: 225,
-    teacher: "SARITA R SINHA",
+    teacher: "Ms. Sarita R Sinha",
     contact: "9430745064",
     specialSpecs: [
       { label: "Pitch Timing", value: "7 minutes pitch + 3 minutes Q & A with panel" },
@@ -861,7 +875,8 @@ const EVENTS_DATA = [
       "Time: 7 mins pitch + 3 mins Q & A.",
       "Recommended: Maximum 8 content slides, excluding title/thank you.",
       "External APIs, open-source software datasets may be used with appropriate acknowledgement.",
-      "Teams must propose a viable business idea where AI/Robotics is a meaningful core part of the product, service or business model. The idea should solve the real-world problem and have a believable customer, business model and path to implementation."
+      "Teams must propose a viable business idea where AI/Robotics is a meaningful core part of the product, service or business model. The idea should solve the real-world problem and have a believable customer, business model and path to implementation.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "Business Model & Revenue",
@@ -899,28 +914,29 @@ const EVENTS_DATA = [
     name: "TITMES DE ACERO",
     brochureTitle: "TITMES DE ACERO (Short Pitch Circket)",
     format: "Short Pitch Cricket",
-    theme: "Score more or chase the score to beat the opponent team",
-    eligibility: "Classes IX–XII",
-    category: "IX-XII",
-    eligibleClasses: [9, 10, 11, 12],
-    participants: "8 members (Min 2 Girls)",
+    theme: null,
+    objective: "Score more or chase the score to beat the opponent team",
+    eligibility: "Classes XI–XII",
+    category: "XI-XII",
+    eligibleClasses: [11, 12],
+    participants: "8 members (Min 2 Girls mandatory)",
     teamSize: "8 members (Min 2 Girls)",
-    duration: "5 Overs per side (League Tournament)",
+    duration: "5 overs per side (League Tournament)",
     accentColor: "#14b8a6",
     secondaryColor: "#0f766e",
     accentHue: 175,
-    teacher: "RITA",
+    teacher: "Ms. Rita",
     contact: "9064681414",
     specialSpecs: [
-      { label: "Eligibility", value: "Classes IX to XII" },
-      { label: "Team Composition", value: "8 members; Minimum 2 Girls in a team is MANDATORY" },
+      { label: "Eligibility", value: "Students of Class XI & XII can participate" },
+      { label: "Team Composition", value: "8 members; Minimum 2 Girls in a team is mandatory" },
       { label: "Overs Breakdown", value: "5 overs per side; exactly 1 over must be bowled by girls" },
-      { label: "Special Catch Rule", value: "If you catch the ball in one drop with one hand, then the batsman is OUT" },
-      { label: "Equipment", value: "Matches played with a tennis ball (Cosco)" },
-      { label: "Umpire Authority", value: "No argument with the umpire; umpire's decision is final and binding" }
+      { label: "Special Catch Rule", value: "If you catch the ball in one drop with one hand, then the batsman is out" },
+      { label: "Equipment", value: "Matches will be played with a tennis ball (Cosco)" },
+      { label: "Umpire Authority", value: "No argument with the umpire. Umpire's decision will be final." }
     ],
     rules: [
-      "Students of Classes 9 to 12 can participate.",
+      "Students of Class XI & XII can participate.",
       "Objective: Score more or chase the score to beat the opponent team.",
       "Team Size: 8 members, Minimum 2 Girls in a team is mandatory.",
       "Short-pitch cricket tournament.",
@@ -931,8 +947,8 @@ const EVENTS_DATA = [
       "It will be a league tournament."
     ],
     criteria: [
-      "1st Position would be secured by the Tournament Winner",
-      "2nd position would be secured by the runner-up of the Tournament"
+      "1st Position: Tournament Winner",
+      "2nd Position: Runner-up of the Tournament"
     ],
     visualMotif: `
       <div class="event-motif event-motif--cricket">

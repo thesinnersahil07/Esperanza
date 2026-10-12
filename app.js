@@ -454,6 +454,7 @@
     const chromaCyan = document.querySelector('.hero__title-chroma--cyan');
     const chromaPink = document.querySelector('.hero__title-chroma--pink');
     const year = document.getElementById('heroYear');
+    const tagline = document.getElementById('heroTagline');
     const themeSegments = document.querySelectorAll('.hero__theme-segment, .hero__theme-bullet');
     const heroDate = document.getElementById('heroDate');
     const cta = document.getElementById('heroCta');
@@ -527,6 +528,7 @@
 
     // PHASE 05: Independent "2K26" emergence
       .to(year, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=1.0')
+      .to(tagline, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.7')
 
     // PHASE 06: Controlled kinetic type theme sequence
       .to(themeSegments, {
@@ -1051,10 +1053,15 @@
 
           <h3 class="event-card__title">${event.name}</h3>
 
+          ${(event.theme || event.objective || event.topic) ? `
           <div class="event-card__theme-block">
-            <span class="event-card__theme-label">OFFICIAL THEME</span>
-            <p class="event-card__theme">"${event.theme}"</p>
-          </div>
+            <span class="event-card__theme-label">${event.theme ? 'OFFICIAL THEME' : (event.objective ? 'OFFICIAL OBJECTIVE' : 'TOPIC')}</span>
+            <p class="event-card__theme">"${event.theme || event.objective || event.topic}"</p>
+          </div>` : `
+          <div class="event-card__theme-block">
+            <span class="event-card__theme-label">EVENT FORMAT</span>
+            <p class="event-card__theme">"${event.format}"</p>
+          </div>`}
 
           <div class="event-card__specs-row">
             <span class="event-card__spec-pill">
@@ -1275,7 +1282,9 @@
 
     if (targetSlug) {
       const targetEvent = eventsList.find(
-        (ev) => ev.slug === targetSlug || String(ev.id) === targetSlug
+        (ev) => ev.slug === targetSlug || String(ev.id) === targetSlug ||
+                (targetSlug === 'cibernatica-legion' && ev.slug === 'cibernetica-legion') ||
+                (targetSlug === 'cibernetica-legion' && ev.slug === 'cibernatica-legion')
       );
       if (targetEvent) {
         currentActiveEventSlug = targetEvent.slug;
@@ -1492,10 +1501,11 @@
               ${event.brochureTitle && event.brochureTitle !== event.name ? `<span class="event-card__format" style="opacity:0.7">Brochure Title: ${event.brochureTitle}</span>` : ''}
             </div>
             <h2 class="event-modal__title">${event.name}</h2>
+            ${(event.theme || event.objective || event.topic) ? `
             <div class="event-modal__theme-callout">
-              <span class="event-modal__theme-callout-label">OFFICIAL BROCHURE THEME</span>
-              <p class="event-modal__theme-callout-text">"${event.theme}"</p>
-            </div>
+              <span class="event-modal__theme-callout-label">${event.theme ? 'OFFICIAL BROCHURE THEME' : (event.objective ? 'OFFICIAL OBJECTIVE' : 'TOPIC')}</span>
+              <p class="event-modal__theme-callout-text">"${event.theme || event.objective || event.topic}"</p>
+            </div>` : ''}
           </div>
           <div class="event-modal__visual-stage">
             ${event.visualMotif}
