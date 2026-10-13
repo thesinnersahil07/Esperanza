@@ -1482,6 +1482,10 @@
           </button>
         </div>
         <div class="event-modal__nav-group">
+          <a href="https://forms.gle/Hg6dUBVKkBPj6jUY6" target="_blank" rel="noopener noreferrer" class="event-modal__btn event-modal__btn--register" data-cursor="ENTER" aria-label="Register on Google Forms (opens in new tab)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            REGISTER
+          </a>
           <button class="event-modal__btn event-modal__btn--share" id="modalShareBtn" data-slug="${event.slug}" data-cursor="SHARE" aria-label="Share this event">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
             <span class="share-text">SHARE LINK</span>
@@ -2341,27 +2345,16 @@
       );
     }
 
-    // 4. CTA Action Button Click Transition
+    // 4. CTA Action Button Feedback (opens Google Form in new tab)
     const ctaBtn = document.getElementById('registerActionBtn');
     if (ctaBtn) {
-      ctaBtn.addEventListener('click', (e) => {
-        e.preventDefault();
+      ctaBtn.addEventListener('click', () => {
         gsap.to(ctaBtn, {
           scale: 0.96,
-          duration: 0.15,
+          duration: 0.12,
           yoyo: true,
           repeat: 1,
           ease: 'power2.inOut',
-          onComplete: () => {
-            const target = document.getElementById('contact');
-            if (target) {
-              if (lenis) {
-                lenis.scrollTo(target, { offset: 0, duration: 1.4 });
-              } else {
-                target.scrollIntoView({ behavior: 'smooth' });
-              }
-            }
-          },
         });
       });
     }

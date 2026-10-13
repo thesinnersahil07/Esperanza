@@ -730,12 +730,12 @@ button {
   transform: translateY(24px);
 }
 
-/* Authoritative Brochure Cover Tagline */
+/* Authoritative Brochure Cover Tagline: From Imagination to Innovation */
 .hero__tagline {
   font-family: var(--font-display);
-  font-size: clamp(0.72rem, 1.8vw, 1.05rem);
+  font-size: clamp(0.7rem, 1.7vw, 1.02rem);
   font-weight: 500;
-  letter-spacing: 0.38em;
+  letter-spacing: clamp(0.18em, 0.6vw, 0.32em);
   text-transform: uppercase;
   color: #ffffff;
   text-shadow: 0 0 16px rgba(91, 255, 224, 0.45), 0 0 32px rgba(255, 79, 216, 0.25);
@@ -2826,7 +2826,19 @@ button {
   text-transform: uppercase;
 }
 
-/* Phoenix 3D Visual & Reactive Halo */
+.register__form-link {
+  color: var(--chrome-cyan);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.register__form-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Phoenix 3D Visual & Scannable QR Card */
 .register__visual {
   perspective: 1000px;
   transform-style: preserve-3d;
@@ -2847,11 +2859,138 @@ button {
 }
 
 .register__phoenix {
-  width: min(320px, 65vw);
+  position: absolute;
+  width: min(340px, 70vw);
   height: auto;
-  opacity: 0.22;
+  opacity: 0.16;
   filter: brightness(1.6) drop-shadow(0 15px 35px rgba(185, 142, 255, 0.3));
   will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scannable Official Brochure QR Card */
+.register__qr-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.25rem 1.4rem;
+  background: rgba(10, 10, 18, 0.82);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 240, 255, 0.12);
+  transition: transform 0.4s var(--ease-out-expo), border-color 0.3s, box-shadow 0.4s;
+}
+
+.register__qr-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 45px rgba(0, 240, 255, 0.25);
+}
+
+.register__qr-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--chrome-cyan);
+  text-transform: uppercase;
+}
+
+.register__qr-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--chrome-cyan);
+  box-shadow: 0 0 8px var(--chrome-cyan);
+  animation: qr-dot-pulse 2s infinite ease-in-out;
+}
+
+@keyframes qr-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.register__qr-frame {
+  position: relative;
+  display: block;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  line-height: 0;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.register__qr-frame:hover {
+  transform: scale(1.03);
+}
+
+.register__qr-img {
+  display: block;
+  width: 168px;
+  height: 168px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.register__qr-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.9), transparent);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.8);
+  animation: qr-scan-anim 2.8s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes qr-scan-anim {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.register__qr-url {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--chrome-pink);
+  text-decoration: none;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.register__qr-url:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 110, 180, 0.6);
+}
+
+.event-modal__btn--register {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.35);
+  color: var(--chrome-cyan);
+  text-decoration: none;
+}
+
+.event-modal__btn--register:hover {
+  background: var(--chrome-cyan);
+  color: #050507;
+  border-color: var(--chrome-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
 }
 
 /* ======================== SECTION 05 — CONTACT / FOOTER ======================== */

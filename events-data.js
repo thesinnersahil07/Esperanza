@@ -474,8 +474,8 @@ const EVENTS_DATA = [
     eligibility: "Classes IX–XII",
     category: "IX-XII",
     eligibleClasses: [9, 10, 11, 12],
-    participants: "Max 3 members (Individual allowed)",
-    teamSize: "1 to 3",
+    participants: "2 members per team",
+    teamSize: "2",
     duration: "3 mins per match (3 Rounds)",
     accentColor: "#f97316",
     secondaryColor: "#ea580c",
@@ -492,7 +492,7 @@ const EVENTS_DATA = [
     ],
     rules: [
       "Students of classes IX to XII can participate.",
-      "Team size: maximum 3 members per team. Individual participation is also allowed.",
+      "Team size: 2 members per team.",
       "The competition will be held in 3 rounds: Prelims, Semi-Final and Final.",
       "Robot dimensions should not exceed 40 cm × 40 cm × 40 cm. There is no tolerance on dimensions.",
       "Robot weight must not exceed 5 kg. There is no tolerance on weight.",
@@ -745,7 +745,7 @@ const EVENTS_DATA = [
     secondaryColor: "#a21caf",
     accentHue: 295,
     teacher: "Ms. Punam Choudhary",
-    contact: "9279934260",
+    contact: "9279334260",
     specialSpecs: [
       { label: "Coverage", value: "General knowledge, current affairs, Logical Reasoning, Technology and Aptitude" },
       { label: "Round 1 (Prelims)", value: "Written quiz for all teams; star-marked questions serve as tie breaker; Top 4 teams qualify for Finals" },
@@ -855,8 +855,8 @@ const EVENTS_DATA = [
     eligibility: "Classes XI–XII",
     category: "XI-XII",
     eligibleClasses: [11, 12],
-    participants: "Team of 3",
-    teamSize: "3",
+    participants: "A team of 2",
+    teamSize: "2",
     duration: "7 mins pitch + 3 mins Q&A",
     accentColor: "#3b82f6",
     secondaryColor: "#4f46e5",
@@ -871,7 +871,7 @@ const EVENTS_DATA = [
     ],
     rules: [
       "Students of Class XI & XII can participate.",
-      "No. of participants: team of 3.",
+      "No. of participants: a team of 2.",
       "Time: 7 mins pitch + 3 mins Q & A.",
       "Recommended: Maximum 8 content slides, excluding title/thank you.",
       "External APIs, open-source software datasets may be used with appropriate acknowledgement.",
@@ -919,8 +919,8 @@ const EVENTS_DATA = [
     eligibility: "Classes XI–XII",
     category: "XI-XII",
     eligibleClasses: [11, 12],
-    participants: "8 members (Min 2 Girls mandatory)",
-    teamSize: "8 members (Min 2 Girls)",
+    participants: "4 members",
+    teamSize: "4 members",
     duration: "5 overs per side (League Tournament)",
     accentColor: "#14b8a6",
     secondaryColor: "#0f766e",
@@ -929,8 +929,8 @@ const EVENTS_DATA = [
     contact: "9064681414",
     specialSpecs: [
       { label: "Eligibility", value: "Students of Class XI & XII can participate" },
-      { label: "Team Composition", value: "8 members; Minimum 2 Girls in a team is mandatory" },
-      { label: "Overs Breakdown", value: "5 overs per side; exactly 1 over must be bowled by girls" },
+      { label: "Team Composition", value: "4 members" },
+      { label: "Overs Breakdown", value: "5 overs per side; 1 over will be bowled by girls" },
       { label: "Special Catch Rule", value: "If you catch the ball in one drop with one hand, then the batsman is out" },
       { label: "Equipment", value: "Matches will be played with a tennis ball (Cosco)" },
       { label: "Umpire Authority", value: "No argument with the umpire. Umpire's decision will be final." }
@@ -938,13 +938,14 @@ const EVENTS_DATA = [
     rules: [
       "Students of Class XI & XII can participate.",
       "Objective: Score more or chase the score to beat the opponent team.",
-      "Team Size: 8 members, Minimum 2 Girls in a team is mandatory.",
+      "Team Size: 4 members.",
       "Short-pitch cricket tournament.",
       "Each side has to play 5 overs; 1 over will be bowled by girls.",
       "If you catch the ball in one drop with one hand, then the batsman is out.",
       "Matches will be played with a tennis ball (Cosco).",
       "No argument with the umpire. Umpire's decision will be final.",
-      "It will be a league tournament."
+      "It will be a league tournament.",
+      "Judges' decision will be final and binding."
     ],
     criteria: [
       "1st Position: Tournament Winner",
