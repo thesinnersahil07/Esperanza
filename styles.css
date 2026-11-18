@@ -3266,3 +3266,29 @@ button {
 @media (min-width: 1025px) {
   .hero__corner { opacity: 1; }
 }
+
+
+/* ============================================================
+   FOOTER — DESIGNED BY CREDIT
+   ============================================================ */
+.footer__designed-by {
+  width: 100%;
+  text-align: center;
+  padding: 18px 0 14px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 10px;
+}
+.footer__designed-by a {
+  color: #a78bfa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.footer__designed-by a:hover {
+  color: #c4b5fd;
+  text-shadow: 0 0 12px rgba(167, 139, 250, 0.5);
+}
